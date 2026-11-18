@@ -83,6 +83,7 @@ async function main(): Promise<void> {
     server.once('error', reject);
     server.listen(0, () => resolve());
   });
+  // Bind ephemeral port and read address
   const address = server.address();
   if (address === null || typeof address === 'string') throw new Error('the server did not bind an ephemeral TCP port');
   process.stdout.write(`[entry] listening on port ${address.port}\n`);
