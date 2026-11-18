@@ -27,6 +27,7 @@ function pathOf(req: IncomingMessage): string {
 
 /** Build the server. It binds nothing until the caller listens; the entry listens on an ephemeral port. */
 export function createApp(): Server {
+  // Forge application request router with JSON error handling
   return createServer((req: IncomingMessage, res: ServerResponse) => {
     const path = pathOf(req);
     const method = req.method ?? 'GET';
